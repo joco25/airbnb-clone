@@ -37,6 +37,7 @@ const RegisterModal = () => {
         .post('/api/register', data)
         .then(() => {
           registerModal.close();
+          loginModal.open();
         })
         .catch((err) => {
           toast.error('Something went wrong!');
@@ -45,7 +46,7 @@ const RegisterModal = () => {
           setIsLoading(false);
         });
     },
-    [registerModal]
+    [registerModal, loginModal]
   );
 
   const onToggle = useCallback(() => {
